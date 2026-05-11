@@ -9,7 +9,7 @@ require_once MAIL_SRC . 'SMTP.php';
 require_once MAIL_PATH . 'autoload.php';
 
 const MAIL_PATH      = 'PHPMailer/vendor/';
-const MAIL_HOST      = 'mail.sanctuaryrealtors.com';
+const MAIL_HOST      = 'localhost';
 const MAIL_SENDER    = 'system@sanctuaryrealtors.com';
 const MAIL_PASS      = 'ek4dT29yahFxISOKwWB6xx3ycekPU!';
 const MAIL_SRC       = MAIL_PATH . 'phpmailer/phpmailer/src/';
@@ -17,43 +17,51 @@ const MAIL_SRC       = MAIL_PATH . 'phpmailer/phpmailer/src/';
 
 function email($email, $subject, $header, $message)
 {
-	global $error;
+    try {
 
-	$sender = MAIL_SENDER;
+        $mail = new PHPMailer(true);
 
-	$mail               = new PHPMailer();
-	$mail->isSMTP();
-	$mail->Host         = MAIL_HOST;
-	$mail->SMTPAuth     = TRUE;
-	$mail->SMTPSecure   = 'ssl';
-	$mail->Port         = 465;
-	$mail->isHTML(true);
-	$mail->Username     = $sender;
-	$mail->Password     = MAIL_PASS;
+        $mail->isSMTP();
 
-	//$mail->SMTPDebug = 2; // Enable verbose debug output
+        $mail->SMTPDebug = 3;
+        $mail->Debugoutput = 'html';
 
-	$mail->Subject = $subject;
-	$mail->SetFrom($sender, $header);
-	$mes = email_header($message);
-	$mes .= email_footer();
-	$mail->Body = $mes;
-	$mail->AddAddress($email);
+        $mail->Host = 'mail.sanctuaryrealtors.com';
 
+        $mail->SMTPAuth = true;
 
-	if (!$mail->Send()) {
+        $mail->Username = MAIL_SENDER;
+        $mail->Password = MAIL_PASS;
 
-		$error_message = $mail->ErrorInfo;
+        $mail->SMTPSecure = 'tls';
 
-		$mail->smtpClose();
+        $mail->Port = 587;
 
-		return $error_message;
-	}
+        $mail->Timeout = 60;
 
+        $mail->SMTPAutoTLS = true;
 
-	$mail->smtpClose();
+        $mail->isHTML(true);
 
-	return "success";
+        $mail->setFrom(MAIL_SENDER, $header);
+
+        $mail->addAddress($email);
+
+        $mail->Subject = $subject;
+
+        $mes = email_header($message);
+        $mes .= email_footer();
+
+        $mail->Body = $mes;
+
+        $mail->send();
+
+        return "success";
+
+    } catch (Exception $e) {
+
+        return $mail->ErrorInfo;
+    }
 }
 
 function email_header($me)
