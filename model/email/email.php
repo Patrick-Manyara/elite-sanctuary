@@ -9,60 +9,56 @@ require_once MAIL_SRC . 'SMTP.php';
 require_once MAIL_PATH . 'autoload.php';
 
 const MAIL_PATH      = 'PHPMailer/vendor/';
-const MAIL_HOST      = 'mail.psychx.io';
-const MAIL_SENDER    = 'system@psychx.io';
-const MAIL_PASS      = 'Pass4SystemPsychX11!!';
+const MAIL_HOST      = 'mail.sanctuaryrealtors.com';
+const MAIL_SENDER    = 'system@sanctuaryrealtors.com';
+const MAIL_PASS      = 'ek4dT29yahFxISOKwWB6xx3ycekPU!';
 const MAIL_SRC       = MAIL_PATH . 'phpmailer/phpmailer/src/';
 
-if (!defined('auth')) {
-    http_response_code(401);
-    exit();
-}
 
 function email($email, $subject, $header, $message)
 {
-    global $error;
+	global $error;
 
-    $sender = MAIL_SENDER;
+	$sender = MAIL_SENDER;
 
-    $mail               = new PHPMailer();
-    $mail->isSMTP();
-    $mail->Host         = MAIL_HOST;
-    $mail->SMTPAuth     = TRUE;
-    $mail->SMTPSecure   = 'ssl';
-    $mail->Port         = 465;
-    $mail->isHTML(true);
-    $mail->Username     = $sender;
-    $mail->Password     = MAIL_PASS;
+	$mail               = new PHPMailer();
+	$mail->isSMTP();
+	$mail->Host         = MAIL_HOST;
+	$mail->SMTPAuth     = TRUE;
+	$mail->SMTPSecure   = 'ssl';
+	$mail->Port         = 465;
+	$mail->isHTML(true);
+	$mail->Username     = $sender;
+	$mail->Password     = MAIL_PASS;
 
-    //$mail->SMTPDebug = 2; // Enable verbose debug output
+	//$mail->SMTPDebug = 2; // Enable verbose debug output
 
-    $mail->Subject = $subject;
-    $mail->SetFrom($sender, $header);
-    $mes = email_header($message);
-    $mes.=email_footer();
-    $mail->Body = $mes;
-    $mail->AddAddress($email);
-    
-
-    if (!$mail->Send()) {
-        $mail->smtpClose();
-        return $error[] = 127;
-    }
-//     if (!$mail->Send()) {
-//     $mail->smtpClose();
-//     $error[] = $mail->ErrorInfo; // Get the actual error message
-//     return $error;
-// }
+	$mail->Subject = $subject;
+	$mail->SetFrom($sender, $header);
+	$mes = email_header($message);
+	$mes .= email_footer();
+	$mail->Body = $mes;
+	$mail->AddAddress($email);
 
 
-    $mail->smtpClose();
+	if (!$mail->Send()) {
 
-    return "success";
+		$error_message = $mail->ErrorInfo;
+
+		$mail->smtpClose();
+
+		return $error_message;
+	}
+
+
+	$mail->smtpClose();
+
+	return "success";
 }
 
-function email_header($me){
-    $mes = '
+function email_header($me)
+{
+	$mes = '
     <table style="max-width:900px;border-width:0px 8px 15px 8px;border-style:solid;border-color:#f5f7f8;background-color:#f5f7f8" width="100%" cellspacing="0" cellpadding="0" border="0" align="center">
 	<tbody>
 		<tr>
@@ -80,8 +76,8 @@ function email_header($me){
 												>
 													<img
 														class="m_4489084039273311747logo CToWUd"
-														src='.logo_url.'
-														alt='.APP_NAME.'
+														src=' . logo_url . '
+														alt=' . APP_NAME . '
 														style="width:120px;height:auto;display:block"
 														data-bit="iit"
 														width="120"
@@ -119,7 +115,7 @@ function email_header($me){
 															
 																
 																<span style="font-size:16px;line-height:20px;color:#1f1f1f">
-																	'.$me.'
+																	' . $me . '
 																</span>
 															
 															</td>
@@ -144,12 +140,13 @@ function email_header($me){
 </table>
 
     ';
-   
-    return $mes;
+
+	return $mes;
 }
 
-function email_footer(){
-    $mes = '<table role="presentation" style="border-collapse:collapse!important;border-spacing:0;font-family:sans-serif;color:#333333" width="100%" cellspacing="0" cellpadding="0" border="0" align="center">
+function email_footer()
+{
+	$mes = '<table role="presentation" style="border-collapse:collapse!important;border-spacing:0;font-family:sans-serif;color:#333333" width="100%" cellspacing="0" cellpadding="0" border="0" align="center">
 	<tbody>
 		<tr>
 			<td style="font-family:Arial,Helvetica,sans-serif;padding-top:10px;padding-bottom:10px;padding-right:0;padding-left:0" valign="top" align="center">
@@ -213,5 +210,5 @@ function email_footer(){
 	</tbody>
 </table>
 ';
-    return $mes;
+	return $mes;
 }

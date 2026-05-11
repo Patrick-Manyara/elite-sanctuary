@@ -183,7 +183,7 @@
 <!-- END PRELOADER -->
 
 <!-- WhatsApp Floating Button -->
-<a href="https://wa.me/254700000000"
+<a href="https://wa.me/+254716464944"
     class="whatsapp-float"
     target="_blank">
     <i class="fab fa-whatsapp"></i>

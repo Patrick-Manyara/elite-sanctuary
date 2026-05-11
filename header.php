@@ -338,7 +338,7 @@ require_once MODEL_PATH . 'operations.php';
                     <div class="header-user-menu user-menu add">
                         <div class="header-user-name">
                             <span>
-                                <a href="https://wa.me/254700000000" target="_blank">
+                                <a href="https://wa.me/+254716464944" target="_blank">
                                     <i class="fab fa-whatsapp"></i>
                                 </a>
                             </span>

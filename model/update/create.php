@@ -57,9 +57,6 @@ switch ($action) {
     case 'user':
         post_tenant();
         break;
-    case 'csv':
-        post_csv();
-        break;
     case 'units':
         post_units();
         break;
@@ -631,71 +628,7 @@ function detectDateFormat($date)
     return false;
 }
 
-function post_csv()
-{
-    if ($_POST['added_by'] == 'admin') {
-        $return_url = admin_url . 'view_users';
-    } else {
-        $return_url = landlord_url . 'view_users';
-    }
 
-    $reader = new Csv();
-    $spreadsheet = $reader->load($_FILES['tenants_csv']['tmp_name']);
-    $worksheet = $spreadsheet->getActiveSheet();
-    $rows = $worksheet->toArray();
-    $columns = array_shift($rows);
-
-
-    foreach ($rows as $row) {
-        $arr = array();
-        foreach ($columns as $index => $column) {
-            if ($column == 'user_dob') {
-
-                $format = detectDateFormat($row[$index]);
-                if ($format) {
-
-                    $date = DateTime::createFromFormat($format, $row[$index]);
-                    $arr[$column] = $date ? $date->format('Y-m-d') : null;
-                } else {
-                    $arr[$column] = $row[$index];
-                }
-            } else {
-
-
-                $arr[$column] = $row[$index];
-            }
-        }
-
-        $arr['property_id'] = security('property_id');
-        $arr['added_by'] = $_POST['added_by'];
-        $arr['user_password']   = password_hashing_hybrid_maker_checker("123456");
-        $arr['user_image'] = 'default.png';
-        $arr['user_id']        = create_id('user', 'user_id');
-
-        if (!build_sql_insert('user', $arr)) {
-            $error['user'] = 140;
-            error_checker($return_url);
-        }
-
-        $email      = $arr['user_email'];
-        $subject    = APP_NAME . ' User Onboarding';
-        $name       = APP_NAME;
-        $body       = '<p style="font-family:Poppins, sans-serif;"> ';
-        $body       .= 'Hello, <b>' . $arr['user_name'] . '</b> <br>';
-        $body       .= 'You have been successfully onboarded as a <b>' . $name . '</b> user';
-        $body       .= 'Log in to your user dashboard here: <a href=" ' . tenant_url . ' ">' . tenant_url . '</a>';
-        $body       .= '</p>';
-
-        //email($email, $subject, $name, $body);
-
-
-        $text4 = "Welcome " . $arr['user_name'] . " to RentPesa. You have successfully signed up as a user.";
-        send_an_sms($arr['user_phone'], $text4);
-    }
-
-
-    header("Location: $return_url?success=Uploaded successfully!");
-}
 
 function post_tenant()
 {
@@ -1311,7 +1244,7 @@ function post_inquiry()
     global $arr;
     global $error;
     global $success;
-    $return_url = base_uri . 'contact?suc';
+    $return_url = base_uri . 'index?suc';
 
     for_loop();
 
@@ -1322,7 +1255,7 @@ function post_inquiry()
         error_checker($return_url);
     }
 
-    $email      = 'nicolarealtykenya@gmail.com';
+    $email      = 'pmanyara97@gmail.com';
     $subject    = APP_NAME . ' Inquiry';
     $name       = APP_NAME;
     $body       = '<p style="font-family:Poppins, sans-serif;"> ';
@@ -1337,12 +1270,13 @@ function post_inquiry()
     $body       .= '<br>';
     $body       .= '<b>MESSAGE:</b> ' . $arr['inquiry_message'] . ' <br>';
     $body       .= '<br>';
-    $body       .= 'Log in to your admin dashboard : <a href=" ' . admin_url . ' "> CLICK HERE </a> to respond to the request';
 
 
-    // email($email, $subject, $name, $body);
-    $success['inquiry'] = 223;
-    render_success($return_url);
+    $res = email($email, $subject, $name, $body);
+    // $success['inquiry'] = 223;
+    var_dump($res);
+    die();
+    // render_success($return_url);
 }
 
 function write_metadata($table, $action, $key, $role, $user)

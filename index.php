@@ -646,7 +646,7 @@ $properties = select_rows($sql);
         <div class="row">
             <div class="col-lg-7 col-md-12" data-aos="fade-right">
                 <h3 class="ready">Ready to get started?</h3>
-                <form id="contactform" class="contact-form" name="contactform" method="post" novalidate>
+                <form  class="contact-form" method="post" action="<?= model_url ?>inquiry" >
                     <div id="success" class="successform">
                         <p class="alert alert-success font-weight-bold" role="alert">Your message was sent successfully!</p>
                     </div>
@@ -654,16 +654,16 @@ $properties = select_rows($sql);
                         <p>Something went wrong, try refreshing and submitting the form again.</p>
                     </div>
                     <div class="form-group">
-                        <input type="text" required class="form-control input-custom input-full" name="firstname" placeholder="Your Name">
+                        <input type="text" required class="form-control input-custom input-full" name="inquiry_name" placeholder="Your Name">
                     </div>
                     <div class="form-group">
-                        <input type="text" required class="form-control input-custom input-full" name="phonenumber" placeholder="Phone Number">
+                        <input type="text" required class="form-control input-custom input-full" name="inquiry_phone" placeholder="Phone Number">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control input-custom input-full" name="email" placeholder="Your Email">
+                        <input type="text" class="form-control input-custom input-full" name="inquiry_email" placeholder="Your Email">
                     </div>
                     <div class="form-group mb-1">
-                        <textarea class="form-control textarea-custom input-full" id="ccomment" name="message" required rows="1" placeholder="Your Message"></textarea>
+                        <textarea class="form-control textarea-custom input-full" id="ccomment" name="inquiry_message" required rows="1" placeholder="Your Message"></textarea>
                     </div>
                     <button type="submit" id="submit-contact" class="btn btn-primary btn-lg">Send Message</button>
                 </form>
