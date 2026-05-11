@@ -496,13 +496,13 @@ $properties = select_rows($sql);
             <div class="col-xl-3 col-lg-6 col-sm-6" data-aos="fade-up" data-aos-delay="150">
                 <div class="small-category-2">
                     <div class="small-category-2-thumb img-1">
-                        <a href="/buy/kilimani">
+                        <a href="properties?id=kilimani">
                             <img src="images/locations/kilimani.jpg" alt="Kilimani">
                         </a>
                     </div>
                     <div class="sc-2-detail">
                         <h4 class="sc-jb-title">
-                            <a href="/buy/kilimani">Kilimani</a>
+                            <a href="properties?id=kilimani">Kilimani</a>
                         </h4>
                         <span>Premium Apartments & Investments</span>
                     </div>
@@ -513,13 +513,13 @@ $properties = select_rows($sql);
             <div class="col-xl-3 col-lg-6 col-sm-6" data-aos="fade-up" data-aos-delay="250">
                 <div class="small-category-2">
                     <div class="small-category-2-thumb img-2">
-                        <a href="/buy/kileleshwa">
+                        <a href="properties?id=kileleshwa">
                             <img src="images/locations/kileleshwa.PNG" alt="Kileleshwa">
                         </a>
                     </div>
                     <div class="sc-2-detail">
                         <h4 class="sc-jb-title">
-                            <a href="/buy/kileleshwa">Kileleshwa</a>
+                            <a href="properties?id=kileleshwa">Kileleshwa</a>
                         </h4>
                         <span>Quiet Living & Modern Homes</span>
                     </div>
@@ -530,13 +530,13 @@ $properties = select_rows($sql);
             <div class="col-xl-3 col-lg-6 col-sm-6" data-aos="fade-up" data-aos-delay="350">
                 <div class="small-category-2">
                     <div class="small-category-2-thumb img-3">
-                        <a href="/buy/westlands">
+                        <a href="properties?id=westlands">
                             <img src="images/locations/westlands.jpeg" alt="Westlands">
                         </a>
                     </div>
                     <div class="sc-2-detail">
                         <h4 class="sc-jb-title">
-                            <a href="/buy/westlands">Westlands</a>
+                            <a href="properties?id=westlands">Westlands</a>
                         </h4>
                         <span>Urban Lifestyle & High-End Living</span>
                     </div>
@@ -547,13 +547,13 @@ $properties = select_rows($sql);
             <div class="col-xl-3 col-lg-6 col-sm-6" data-aos="fade-up" data-aos-delay="450">
                 <div class="small-category-2">
                     <div class="small-category-2-thumb img-4">
-                        <a href="/buy/riverside">
+                        <a href="properties?id=riverside">
                             <img src="images/locations/riverside.jpeg" alt="Riverside">
                         </a>
                     </div>
                     <div class="sc-2-detail">
                         <h4 class="sc-jb-title">
-                            <a href="/buy/riverside">Riverside</a>
+                            <a href="properties?id=riverside">Riverside</a>
                         </h4>
                         <span>Exclusive & Serene Residences</span>
                     </div>
