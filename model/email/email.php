@@ -17,51 +17,49 @@ const MAIL_SRC       = MAIL_PATH . 'phpmailer/phpmailer/src/';
 
 function email($email, $subject, $header, $message)
 {
-    try {
+	try {
+		$mail = new PHPMailer(true);
 
-        $mail = new PHPMailer(true);
+		$mail->isSMTP();
 
-        $mail->isSMTP();
+		$mail->SMTPDebug = 3;
+		$mail->Debugoutput = 'html';
 
-        $mail->SMTPDebug = 3;
-        $mail->Debugoutput = 'html';
+		$mail->Host = 'localhost';
 
-        $mail->Host = 'mail.sanctuaryrealtors.com';
+		$mail->SMTPAuth = true;
 
-        $mail->SMTPAuth = true;
+		$mail->Username = MAIL_SENDER;
+		$mail->Password = MAIL_PASS;
 
-        $mail->Username = MAIL_SENDER;
-        $mail->Password = MAIL_PASS;
+		$mail->Port = 25;
 
-        $mail->SMTPSecure = 'tls';
+		$mail->SMTPSecure = false;
 
-        $mail->Port = 587;
+		$mail->SMTPAutoTLS = false;
 
-        $mail->Timeout = 60;
+		$mail->Timeout = 60;
 
-        $mail->SMTPAutoTLS = true;
+		$mail->isHTML(true);
 
-        $mail->isHTML(true);
+		$mail->setFrom(MAIL_SENDER, $header);
 
-        $mail->setFrom(MAIL_SENDER, $header);
+		$mail->addAddress($email);
 
-        $mail->addAddress($email);
+		$mail->Subject = $subject;
 
-        $mail->Subject = $subject;
+		$mes = email_header($message);
+		$mes .= email_footer();
 
-        $mes = email_header($message);
-        $mes .= email_footer();
+		$mail->Body = $mes;
 
-        $mail->Body = $mes;
+		$mail->send();
 
-        $mail->send();
+		return "success";
+	} catch (Exception $e) {
 
-        return "success";
-
-    } catch (Exception $e) {
-
-        return $mail->ErrorInfo;
-    }
+		return $mail->ErrorInfo;
+	}
 }
 
 function email_header($me)
