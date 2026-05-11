@@ -1,24 +1,15 @@
 <?php
-
-if(!defined('auth')) {
-    http_response_code(401);
-    exit();
-}
-
-const APP_NAME =  'RentPesa';
+const APP_NAME =  'Elite Sanctuary Realtors';
 
 const NO_SPECIAL_CHAR =  '/^[\w]+$/';
 
-$isOnline = false; // Set this to true for online, false for offline
 
-if ($isOnline) {
-    // ONLINE
+if (IS_ONLINE) {
     define('DB_HOST', 'localhost');
     define('DB_PASSWORD', '6wVCtmoa2CoI');
-    define('DB_NAME', 'rentpesa_rent');
-    define('DB_USERNAME', 'rentpesa_rent');
+    define('DB_NAME', 'floraccn_rent');
+    define('DB_USERNAME', 'floraccn_rent');
 } else {
-    // OFFLINE
     define('DB_HOST', 'localhost');
     define('DB_PASSWORD', '');
     define('DB_NAME', 'sanctuary');

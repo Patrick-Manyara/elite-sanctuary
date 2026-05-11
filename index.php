@@ -408,9 +408,10 @@ $properties = select_rows($sql);
                             </div>
 
                             <div class="button-effect">
-                                <a href="property?id=<?= $property['property_id'] ?>" class="btn"><i class="fa fa-link"></i></a>
-                                <a href="#" class="btn popup-video"><i class="fas fa-video"></i></a>
-                                <a href="#" class="img-poppu btn"><i class="fa fa-photo"></i></a>
+                                <a href="property?id=<?= $property['property_id'] ?>" class="view-property-btn">
+                                    <i class="fa fa-eye"></i>
+                                    View Property
+                                </a>
                             </div>
                         </div>
 
@@ -588,32 +589,49 @@ $properties = select_rows($sql);
     <div _ngcontent-bgi-c3="" class="container">
         <div _ngcontent-bgi-c3="" class="featured-boxes-inner">
             <div _ngcontent-bgi-c3="" class="row m-0">
-                <div _ngcontent-bgi-c3="" class="col-lg-3 col-sm-6 col-md-6 p-0" data-aos="fade-up" data-aos-delay="250">
+                <div _ngcontent-bgi-c3="" class="col-lg col-md-6 col-sm-6 p-2" data-aos="fade-up" data-aos-delay="250">
                     <div _ngcontent-bgi-c3="" class="single-featured-box">
                         <div _ngcontent-bgi-c3="" class="icon color-fb7756"><img src="images/icons/i-5.svg" width="85" height="85" alt=""></div>
-                        <h3 _ngcontent-bgi-c3="" class="mt-5">Curated Property Listings</h3>
-                        <p _ngcontent-bgi-c3="">We offer carefully selected homes in Kilimani, Kileleshwa, Westlands and Riverside — focusing on quality, value and location.</p><a _ngcontent-bgi-c3="" class="read-more-btn" href="#">Read More</a>
+                        <h3 _ngcontent-bgi-c3="" class="mt-5">Engage</h3>
+                        <p _ngcontent-bgi-c3="">
+                            Start your journey with a simple call or message. Our team listens, understands your goals, and builds a clear investment profile tailored to you.
+                        </p>
                     </div>
                 </div>
-                <div _ngcontent-bgi-c3="" class="col-lg-3 col-sm-6 col-md-6 p-0" data-aos="fade-up" data-aos-delay="350">
+                <div _ngcontent-bgi-c3="" class="col-lg col-md-6 col-sm-6 p-2" data-aos="fade-up" data-aos-delay="350">
                     <div _ngcontent-bgi-c3="" class="single-featured-box">
                         <div _ngcontent-bgi-c3="" class="icon color-facd60"><img src="images/icons/i-6.svg" width="85" height="85" alt=""></div>
-                        <h3 _ngcontent-bgi-c3="" class="mt-5">Verified & Trusted Listings</h3>
-                        <p _ngcontent-bgi-c3="">Every property is vetted for authenticity, accurate pricing and reliability, giving you confidence in every decision.</p><a _ngcontent-bgi-c3="" class="read-more-btn" href="#">Read More</a>
+                        <h3 _ngcontent-bgi-c3="" class="mt-5">Explore</h3>
+                        <p _ngcontent-bgi-c3="">
+                            We curate high-value properties that match your objectives and guide you through physical or virtual tours for a real feel of each opportunity.
+                        </p>
                     </div>
                 </div>
-                <div _ngcontent-bgi-c3="" class="col-lg-3 col-sm-6 col-md-6 p-0" data-aos="fade-up" data-aos-delay="450">
+                <div _ngcontent-bgi-c3="" class="col-lg col-md-6 col-sm-6 p-2" data-aos="fade-up" data-aos-delay="450">
                     <div _ngcontent-bgi-c3="" class="single-featured-box">
                         <div _ngcontent-bgi-c3="" class="icon color-1ac0c6"><img src="images/icons/i-7.svg" width="85" height="85" alt=""></div>
-                        <h3 _ngcontent-bgi-c3="" class="mt-5">Investment-Focused Approach</h3>
-                        <p _ngcontent-bgi-c3="">We help you identify high-return opportunities in Nairobi’s top-performing real estate markets.</p><a _ngcontent-bgi-c3="" class="read-more-btn" href="#">Read More</a>
+                        <h3 _ngcontent-bgi-c3="" class="mt-5">Evaluate</h3>
+                        <p _ngcontent-bgi-c3="">
+                            Our advisors break down rental potential, ROI, yields, and long-term performance so you can confidently choose the right investment.
+                        </p>
                     </div>
                 </div>
-                <div _ngcontent-bgi-c3="" class="col-lg-3 col-sm-6 col-md-6 p-0" data-aos="fade-up" data-aos-delay="550">
+                <div _ngcontent-bgi-c3="" class="col-lg col-md-6 col-sm-6 p-2" data-aos="fade-up" data-aos-delay="550">
                     <div _ngcontent-bgi-c3="" class="single-featured-box">
                         <div _ngcontent-bgi-c3="" class="icon"><img src="images/icons/i-8.svg" width="85" height="85" alt=""></div>
-                        <h3 _ngcontent-bgi-c3="" class="mt-5">Nairobi Market Specialists</h3>
-                        <p _ngcontent-bgi-c3="">With deep local expertise, we guide you to the best locations, deals and developments across the city.</p><a _ngcontent-bgi-c3="" class="read-more-btn" href="#">Read More</a>
+                        <h3 _ngcontent-bgi-c3="" class="mt-5">Execute</h3>
+                        <p _ngcontent-bgi-c3="">
+                            Once you select a unit, we handle everything—reservation, paperwork, legal due diligence, and contract signing—smoothly and professionally.
+                        </p>
+                    </div>
+                </div>
+                <div _ngcontent-bgi-c3="" class="col-lg col-md-6 col-sm-6 p-2" data-aos="fade-up" data-aos-delay="550">
+                    <div _ngcontent-bgi-c3="" class="single-featured-box">
+                        <div _ngcontent-bgi-c3="" class="icon"><img src="images/icons/i-8.svg" width="85" height="85" alt=""></div>
+                        <h3 _ngcontent-bgi-c3="" class="mt-5">Enjoy</h3>
+                        <p _ngcontent-bgi-c3="">
+                            Receive your keys and start earning. We assist with furnishing, Airbnb setup, tenant placement, and full-service management for effortless returns.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -774,21 +792,21 @@ $properties = select_rows($sql);
             </div>
             <div class="col-lg-4 col-md-6" data-aos="fade-right">
                 <!-- Image Box -->
-                <a href="#" class="img-box hover-effect">
+                <a href="properties?id=kilimani" class="img-box hover-effect">
                     <img src="images/props/k1.jpeg" class="img-responsive" alt="">
                     <!-- Badge -->
                     <div class="listing-badges">
                         <span class="featured">Featured</span>
                     </div>
                     <div class="img-box-content visible">
-                        <h4>Kilimani/h4>
-                            <span>4 Properties</span>
+                        <h4>Kilimani</h4>
+                        <span>4 Properties</span>
                     </div>
                 </a>
             </div>
             <div class="col-lg-8 col-md-6" data-aos="fade-left">
                 <!-- Image Box -->
-                <a href="#" class="img-box hover-effect">
+                <a href="properties?id=kileleshwa" class="img-box hover-effect">
                     <img src="images/props/kl1.jpeg" class="img-responsive" alt="">
                     <div class="img-box-content visible">
                         <h4>Kileleshwa</h4>
@@ -798,7 +816,7 @@ $properties = select_rows($sql);
             </div>
             <div class="col-lg-8 col-md-6" data-aos="fade-right">
                 <!-- Image Box -->
-                <a href="#" class="img-box hover-effect no-mb">
+                <a href="properties?id=westlands" class="img-box hover-effect no-mb">
                     <img src="images/props/w1.jpeg" class="img-responsive" alt="">
                     <div class="img-box-content visible">
                         <h4>Westlands </h4>
@@ -808,7 +826,7 @@ $properties = select_rows($sql);
             </div>
             <div class="col-lg-4 col-md-6" data-aos="fade-left">
                 <!-- Image Box -->
-                <a href="#" class="img-box hover-effect no-mb x3">
+                <a href="properties?id=riverside" class="img-box hover-effect no-mb x3">
                     <img src="images/props/rs1.jpeg" class="img-responsive" alt="">
                     <!-- Badge -->
                     <div class="listing-badges">

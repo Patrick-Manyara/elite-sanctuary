@@ -231,6 +231,56 @@ require_once MODEL_PATH . 'operations.php';
                 margin-top: 30px;
             }
         }
+
+        .header-user-name a {
+            width: 38px;
+            height: 38px;
+            background: #25D366;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            text-decoration: none;
+        }
+
+        .header-user-name a i {
+            color: #fff;
+            font-size: 20px;
+        }
+
+        .button-effect {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            z-index: 5;
+        }
+
+        .view-property-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            border-radius: 30px;
+            background: rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .view-property-btn i {
+            font-size: 14px;
+        }
+
+        .view-property-btn:hover {
+            background: rgba(255, 255, 255, 0.18);
+            color: #fff;
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 
@@ -287,14 +337,14 @@ require_once MODEL_PATH . 'operations.php';
                     <!-- Right Side Content / End -->
                     <div class="header-user-menu user-menu add">
                         <div class="header-user-name">
-                            <span><img src="images/testimonials/blackwoman.jpeg" alt=""></span>
+                            <span>
+                                <a href="https://wa.me/254700000000" target="_blank">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </span>
                         </div>
-
                     </div>
                     <!-- Right Side Content / End -->
-
-
-
 
                 </div>
             </div>

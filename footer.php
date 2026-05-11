@@ -48,12 +48,6 @@
                                 <li><a href="properties">Property</a></li>
                                 <li><a href="contact">Contact Us</a></li>
                             </ul>
-                            <ul class="nav-right">
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Terms & Condition</a></li>
-                                <li><a href="#">FAQ</a></li>
-                                <li><a href="#">Blog & News</a></li>
-                            </ul>
                         </div>
                     </div>
                 </div>
