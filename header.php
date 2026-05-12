@@ -58,6 +58,17 @@ require_once MODEL_PATH . 'operations.php';
         <link rel="stylesheet" href="css/colors/pink.css">
 
     <?php endif; ?>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C0VSLTZMS2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-C0VSLTZMS2');
+    </script>
     <style>
         body,
         html {
