@@ -676,7 +676,7 @@ function post_tenant()
     email($email, $subject, $name, $body);
 
 
-    $text4 = "Welcome " . $arr['user_name'] . " to RentPesa. You have been successfully signed up as a user. Check your email for your account details.";
+    $text4 = "Welcome " . $arr['user_name'] . " to Elite Sanctuary. You have been successfully signed up as a user. Check your email for your account details.";
     send_an_sms($arr['user_phone'], $text4);
 
 
@@ -1014,7 +1014,7 @@ function post_landlord()
     email($email, $subject, $name, $body);
 
 
-    $text4 = "Welcome " . $arr['landlord_name'] . " to RentPesa. You have successfully signed up as a landlord.";
+    $text4 = "Welcome " . $arr['landlord_name'] . " to Elite Sanctuary. You have successfully signed up as a landlord.";
     send_an_sms($arr['landlord_phone'], $text4);
 
     $success['landlord'] = 207;
@@ -1065,7 +1065,7 @@ function landlord_register()
     email($email, $subject, $name, $body);
 
 
-    $text4 = "Welcome to RentPesa! Your registration as a landlord is being processed. Please wait for admin activation to start using your account. You may check the email you used to sign up for further details. Thank you!";
+    $text4 = "Welcome to Elite Sanctuary! Your registration as a landlord is being processed. Please wait for admin activation to start using your account. You may check the email you used to sign up for further details. Thank you!";
     send_an_sms($arr['landlord_phone'], $text4);
 
     $success['landlord'] = 207;

@@ -48,7 +48,7 @@ function email($email, $subject, $header, $message)
 }
 
 
-define('APP_NAME', 'RentPesa');
+define('APP_NAME', 'Elite Sanctuary');
 
 $email      = 'annaodhiambo@gmail.com';
 $subject    = APP_NAME . ' Cron Test';

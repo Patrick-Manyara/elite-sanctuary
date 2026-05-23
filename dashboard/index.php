@@ -260,7 +260,7 @@ $row = select_rows($sql)[0];
         <div class="col-lg-4 mb-4 ml-2 mr-2">
             <div class="card">
                 <div class="card-body">
-                    <a href="view_users">
+                    <a href="#">
                         <div class="d-flex" style="align-items: center; justify-content:center;">
                             <div style="background-color: #EFF4FF;" class="OverviewCircle">
                                 <img src="assets/img/icons/card.png" class="OverviewIcon" />
@@ -430,8 +430,8 @@ $row = select_rows($sql)[0];
 
                 </div>
                 <div class="card-body">
-                    <a href="landlord" class="btn rounded-pill btn-outline-info" style="width:100%;margin-bottom: 10px;">Add Landlord</a>
-                    <a href="user" class="btn rounded-pill btn-outline-info" style="width:100%;margin-bottom: 10px;">Add Tenant</a>
+                    <a href="#" class="btn rounded-pill btn-outline-info" style="width:100%;margin-bottom: 10px;">Add Landlord</a>
+                    <a href="#" class="btn rounded-pill btn-outline-info" style="width:100%;margin-bottom: 10px;">Add Tenant</a>
                     <a href="property" class="btn rounded-pill btn-outline-info" style="width:100%;margin-bottom: 10px;">Add Property</a>
                     <a href="rent_reports" class="btn rounded-pill btn-outline-info" style="width:100%;margin-bottom: 10px;">View Reports</a>
                 </div>
@@ -572,7 +572,7 @@ if (barChart) {
                     }
                 },
                 {
-                    label: 'RentPesa',
+                    label: 'Elite Sanctuary',
                     data: [13750, 7250, 9500, 12500, 11250, 9750],
                     backgroundColor: '#36b9cc',
                     borderColor: 'transparent',

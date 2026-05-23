@@ -106,7 +106,7 @@ if (!empty($user)) {
                             <div class="clearfix"></div>
 
                             <p style="font-weight: 700;">
-                                This user has accepted the request and authorization of RentPesa to transfer the amount specified above on the specified date of each and every month commencing
+                                This user has accepted the request and authorization of Elite Sanctuary to transfer the amount specified above on the specified date of each and every month commencing
                                 on the date provided above until advised otherwise.
 
                             </p>
