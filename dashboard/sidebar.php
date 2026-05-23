@@ -33,16 +33,9 @@
         </li>
 
         <li class="menu-item  <?= $page == "landlord" ? "active" : "" ?>">
-            <a href="view_landlords" class="menu-link">
+            <a href="#" class="menu-link">
                 <i class="menu-icon fa-solid fa-user-group"></i>
                 <div class="MySide" data-i18n="Landlords">Landlords</div>
-            </a>
-        </li>
-
-        <li class="menu-item  <?= $page == "users" ? "active" : "" ?>">
-            <a href="view_users" class="menu-link">
-                <i class="menu-icon bx bx-user-pin"></i>
-                    <div class="MySide" data-i18n="Tenants">Tenants</div>
             </a>
         </li>
 
@@ -56,13 +49,7 @@
 
         <li class="menu-header small text-uppercase"><span class="menu-header-text">Payments</span></li>
 
-        <li class="menu-item <?= $page == "payment" ? "active" : "" ?>">
-            <a href="view_payments" class="menu-link">
-                <i class="menu-icon bx bxs-credit-card-alt"></i>
-                <div class="MySide" data-i18n="Rent Payments">Rent Payments</div>
-            </a>
-        </li>
-
+       
 
         <li class="menu-item ">
             <a href="javascript:void(0);" class="menu-link menu-toggle <?= $page == "rent_reports" ? "active" : "" ?>">
@@ -71,7 +58,7 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="rent_reports.php" class="menu-link <?= $page == "rent_reports" ? "active" : "" ?>">
+                    <a href="#" class="menu-link <?= $page == "rent_reports" ? "active" : "" ?>">
                         <div data-i18n="Rent Reports">Rent Reports</div>
                     </a>
                 </li>
