@@ -3,26 +3,21 @@ $page = 'property';
 include_once 'header.php';
 $properties = get_all('property');
 
-$num_columns = 10;
 
+$column_defs = array(
+    array('data' => '', 'title' => 'id'),
+    array('data' => 'col_' . $i, 'title' => '#'),
+    array('data' => 'property_image', 'title' => 'First Image'),
+    array('data' => 'property_name', 'title' => 'Title'),
+    array('data' => 'property_price', 'title' => 'Units'),
+    array('data' => 'property_other', 'title' => 'Other Images'),
+    array('data' => 'Status', 'title' => 'Status'),
+    array('data' => '', 'title' => 'Action'),
+    array('data' => 'property_date_created', 'title' => 'Created On')
+);
+
+$num_columns = sizeof($column_defs);
 $column_indexes = range(0, $num_columns - 1);
-
-// Create an array of column definition objects
-$column_defs = array();
-for ($i = 0; $i < $num_columns; $i++) {
-    $column_defs = array(
-        array('data' => '', 'title' => 'id'),
-        array('data' => 'col_' . $i, 'title' => '#'),
-        array('data' => 'property_image', 'title' => 'First Image'),
-        array('data' => 'property_image2', 'title' => 'Second Image'),
-        array('data' => 'property_name', 'title' => 'Title'),
-        array('data' => 'property_price', 'title' => 'Units'),
-        array('data' => 'property_other', 'title' => 'Other Images'),
-        array('data' => 'Status', 'title' => 'Status'),
-        array('data' => '', 'title' => 'Action'),
-        array('data' => 'property_date_created', 'title' => 'Created On')
-    );
-}
 
 $add = 'property.php';
 ?>
@@ -35,17 +30,9 @@ $add = 'property.php';
             <table class="datatables-basic table border-top">
                 <thead>
                     <tr>
-                        <th></th>
-
-                        <th>No.</th>
-                        <th>First Image</th>
-                        <th>Second Image</th>
-                        <th>Title</th>
-                        <th>Units</th>
-                        <th>Other Images</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                        <th>Created On</th>
+                        <?php foreach ($column_defs as $col): ?>
+                            <th><?= htmlspecialchars($col['title']) ?></th>
+                        <?php endforeach; ?>
                     </tr>
                 </thead>
                 <tbody>
@@ -69,9 +56,7 @@ $add = 'property.php';
                             <td>
                                 <img alt="property image <?= $property['property_name'] ?>" src="<?= file_url . $property['property_image'] ?>" style="width:150px; height:auto; border-radius:5px;" title="<?= $property['property_name'] ?>">
                             </td>
-                            <td>
-                                <img alt="property image <?= $property['property_name'] ?>" src="<?= file_url . $property['property_image2'] ?>" style="width:150px; height:auto; border-radius:5px;" title="<?= $property['property_name'] ?>">
-                            </td>
+
                             <td><?= $property['property_name'] ?></td>
                             <td>
                                 <a href="<?= $link ?>" class="btn btn-info">

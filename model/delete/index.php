@@ -49,7 +49,6 @@ if ($method == 'property') {
 
     
     delete_files('property_image', 'property', 'property_id', $id);
-    delete_files('property_image2', 'property', 'property_id', $id);
     if (!delete($table, $column,  $id)) {
         $error['delete'] = 144;
         error_checker($return_url);

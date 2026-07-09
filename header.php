@@ -292,6 +292,152 @@ require_once MODEL_PATH . 'operations.php';
             color: #fff;
             transform: translateY(-2px);
         }
+
+        /* ==================================================
+   PROPERTY IMAGE CLICK AND HOVER FIX
+================================================== */
+
+        .portfolio-items .project-single .project-head {
+            position: relative !important;
+            overflow: hidden !important;
+        }
+
+
+        /* IMAGE CONTAINER */
+
+        .portfolio-items .project-head .homes {
+            position: relative !important;
+            width: 100% !important;
+            height: 100% !important;
+            z-index: 1 !important;
+        }
+
+
+        /* MAKE THE ENTIRE IMAGE LINK CLICKABLE */
+
+        .portfolio-items .project-head .property-image-link {
+            position: relative !important;
+            display: block !important;
+            width: 100% !important;
+            height: 100% !important;
+            cursor: pointer !important;
+            z-index: 10 !important;
+        }
+
+
+        /* PROPERTY IMAGE */
+
+        .portfolio-items .project-head .property-listing-image {
+            display: block !important;
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            transition: transform 0.4s ease !important;
+        }
+
+
+        /* GOLD OVERLAY */
+
+        .portfolio-items .project-head .property-image-link::after {
+            content: "" !important;
+
+            position: absolute !important;
+
+            top: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            left: 0 !important;
+
+            width: 100% !important;
+            height: 100% !important;
+
+            background: rgba(198, 157, 68, 0) !important;
+
+            opacity: 1 !important;
+
+            visibility: visible !important;
+
+            pointer-events: none !important;
+
+            transition: background 0.4s ease !important;
+
+            z-index: 2 !important;
+        }
+
+
+        /* GOLD EFFECT */
+
+        .portfolio-items .project-head:hover .property-image-link::after {
+            background: rgba(198, 157, 68, 0.4) !important;
+        }
+
+
+        /* IMAGE ZOOM */
+
+        .portfolio-items .project-head:hover .property-listing-image {
+            transform: scale(1.05) !important;
+        }
+
+
+        /* KEEP FOR SALE ABOVE GOLD OVERLAY */
+
+        .portfolio-items .project-head .homes-tag {
+            position: absolute !important;
+
+            top: 20px !important;
+
+            right: 20px !important;
+
+            z-index: 20 !important;
+        }
+
+
+        /* ==================================================
+   VIEW PROPERTY BUTTON
+================================================== */
+
+        .portfolio-items .project-head .button-effect {
+            position: absolute !important;
+
+            left: 20px !important;
+
+            bottom: 20px !important;
+
+            top: auto !important;
+
+            right: auto !important;
+
+            width: auto !important;
+
+            height: auto !important;
+
+            transform: none !important;
+
+            background: transparent !important;
+
+            z-index: 30 !important;
+
+            pointer-events: none !important;
+        }
+
+
+        /* VIEW PROPERTY LINK */
+
+        .portfolio-items .project-head .button-effect .view-property-btn {
+            position: relative !important;
+
+            display: inline-flex !important;
+
+            align-items: center !important;
+
+            width: auto !important;
+
+            height: auto !important;
+
+            pointer-events: auto !important;
+
+            z-index: 31 !important;
+        }
     </style>
 </head>
 

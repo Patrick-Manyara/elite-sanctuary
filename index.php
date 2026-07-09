@@ -395,24 +395,41 @@ $properties = select_rows($sql);
                     <div class="project-single" data-aos="fade-left">
 
                         <div class="project-inner project-head">
-                            <div class="homes">
-                                <a href="property?id=<?= $property['property_id'] ?>" class="homes-img" style="width: 100%;">
-                                    <div class="homes-tag button sale rent">For Sale</div>
 
-                                    <!-- IMAGE -->
-                                    <img src="<?php echo file_url . $property['property_image']; ?>"
-                                        alt="<?php echo $property['property_name']; ?>"
-                                        class="img-responsive"
-                                        style="height: 100%;">
+                            <div class="homes">
+
+                                <a
+                                    href="property.php?id=<?= urlencode($property['property_id']); ?>"
+                                    class="homes-img property-image-link">
+
+                                    <div class="homes-tag button sale rent">
+                                        For Sale
+                                    </div>
+
+                                    <img
+                                        src="<?= file_url . $property['property_image']; ?>"
+                                        alt="<?= htmlspecialchars($property['property_name']); ?>"
+                                        class="img-responsive property-listing-image">
+
                                 </a>
+
                             </div>
+
 
                             <div class="button-effect">
-                                <a href="property?id=<?= $property['property_id'] ?>" class="view-property-btn">
+
+                                <a
+                                    href="property.php?id=<?= urlencode($property['property_id']); ?>"
+                                    class="view-property-btn">
+
                                     <i class="fa fa-eye"></i>
-                                    View Property
+
+                                    <span>View Property</span>
+
                                 </a>
+
                             </div>
+
                         </div>
 
                         <!-- CONTENT -->
@@ -646,7 +663,7 @@ $properties = select_rows($sql);
         <div class="row">
             <div class="col-lg-7 col-md-12" data-aos="fade-right">
                 <h3 class="ready">Ready to get started?</h3>
-                <form  class="contact-form" method="post" action="<?= model_url ?>inquiry" >
+                <form class="contact-form" method="post" action="<?= model_url ?>inquiry">
                     <div id="success" class="successform">
                         <p class="alert alert-success font-weight-bold" role="alert">Your message was sent successfully!</p>
                     </div>

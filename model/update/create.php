@@ -786,7 +786,6 @@ function post_property()
 
 
     if (!empty($_FILES['property_image']['name'])) $arr['property_image'] = upload('property_image');
-    if (!empty($_FILES['property_image2']['name'])) $arr['property_image2'] = upload('property_image2');
 
 
     $arr['property_id'] = create_id('property', 'property_id');
@@ -820,7 +819,6 @@ function edit_property()
     unset($_POST['property_id']);
 
     if (!empty($_FILES['property_image']['name'])) $arr['property_image'] = upload('property_image');
-    if (!empty($_FILES['property_image2']['name'])) $arr['property_image2'] = upload('property_image2');
 
     $conn = connect();
 
@@ -863,7 +861,6 @@ function edit_property()
 
 
     if (!empty($arr['property_image'])) delete_file('property_image', 'property', 'property_id');
-    if (!empty($arr['property_image2'])) delete_file('property_image2', 'property', 'property_id');
 
 
     if (!build_sql_edit('property', $arr, $id, 'property_id')) {

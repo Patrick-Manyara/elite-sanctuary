@@ -61,6 +61,20 @@ $amenities = get_all('amenities');
                     <div class="divider-text">Pricing Details</div>
                 </div>
 
+                <div>
+
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <?php
+                            input_hybrid("Property Price", "property_price", $property, false, 'number');
+                            ?>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
 
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-6">
@@ -99,19 +113,7 @@ $amenities = get_all('amenities');
 
                 </div>
 
-                <div id="nono">
-
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <?php
-                            input_hybrid("Property Price", "property_price", $property, false, 'number');
-                            ?>
-                        </div>
-
-                    </div>
-
-                </div>
-
+                
 
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-6">
@@ -201,20 +203,7 @@ $amenities = get_all('amenities');
                     </div>
 
 
-                    <div class="col-12">
-                        <?php
-                        if (!empty($property['property_image2'])) {
-                            $require = false;
-                            $property_image2 = $property['property_image2'];
-                        } else {
-                            $require = true;
-                            $property_image2 = 'white_bg_image.png';
-                        }
-                        input_hybrid("Second Image", "property_image2", $property, false, "file", 'my_image1', '', 'img');
-                        ?>
-
-                        <img alt="image" src="<?= file_url . $property_image2 ?>" id="image_loader1" style="border-radius: 5%; border-color:grey; border-style: solid; height:auto; width: 60%;">
-                    </div>
+            
                 </div>
 
 

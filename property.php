@@ -1,64 +1,127 @@
 <?php
 $page = 'property';
 require_once 'header.php';
+
 $id = $_GET['id'];
-$property = select_rows("SELECT * FROM property WHERE property_id = '$id'")[0];
-$images = select_rows("SELECT * FROM property_image WHERE property_id = '$id'")[0];
+
+$property = select_rows("
+    SELECT * 
+    FROM property 
+    WHERE property_id = '$id'
+")[0];
+
+$image_results = select_rows("
+    SELECT * 
+    FROM property_image 
+    WHERE property_id = '$id'
+");
+
+// Prevent an error if the property has no additional images
+$images = !empty($image_results) ? $image_results[0] : [];
+
 $amenities = select_rows("
     SELECT a.amenities_name 
     FROM features f
-    JOIN amenities a ON f.amenities_id = a.amenities_id
+    JOIN amenities a 
+        ON f.amenities_id = a.amenities_id
     WHERE f.property_id = '$id'
 ");
+
 $featured_properties = select_rows("
-    SELECT * FROM property 
+    SELECT * 
+    FROM property 
     WHERE property_id != '$id'
     ORDER BY RAND() 
     LIMIT 3
 ");
 ?>
 
-<div class="swiper-container">
+<!-- PROPERTY IMAGE GALLERY -->
+
+<div class="swiper-container property-gallery">
+
     <div class="swiper-wrapper" style="margin-top: 100px;">
 
-        <div class="swiper-slide">
-            <a href="<?= file_url . $property['property_image'] ?>" class="grid image-link">
-                <img style="height:250px;width:100%;object-fit:cover;" src="<?= file_url . $property['property_image'] ?>" class="img-fluid" alt="Property Image 1">
-            </a>
-        </div>
+        <!-- MAIN PROPERTY IMAGE -->
+
+        <?php if (!empty($property['property_image'])) { ?>
+
+            <div class="swiper-slide">
+
+                <a
+                    href="<?= file_url . $property['property_image']; ?>"
+                    class="grid property-gallery-image"
+                    title="<?= htmlspecialchars($property['property_name']); ?>">
+
+                    <img
+                        src="<?= file_url . $property['property_image']; ?>"
+                        class="img-fluid"
+                        style="height: 250px; width: 100%; object-fit: cover;"
+                        alt="<?= htmlspecialchars($property['property_name']); ?>">
+
+                </a>
+
+            </div>
+
+        <?php } ?>
+
+
+        <!-- ADDITIONAL PROPERTY IMAGES -->
 
         <?php
-        // Loop through property_image_1 → property_image_5 (which are actually _2 → _6)
-        for ($i = 1; $i <= 4; $i++) {
 
-            $img = $images["property_image_$i"];
+        for ($i = 1; $i <= 10; $i++) {
 
-            if (!empty($img)) {
+            $image_field = "property_image_$i";
+
+            if (
+                isset($images[$image_field]) &&
+                !empty(trim($images[$image_field]))
+            ) {
+
+                $image = $images[$image_field];
+
         ?>
 
                 <div class="swiper-slide">
-                    <a href="<?= file_url . $img; ?>" class="grid image-link">
-                        <img style="height:250px;width:100%;object-fit:cover;"
-                            src="<?= file_url . $img; ?>"
+
+                    <a
+                        href="<?= file_url . $image; ?>"
+                        class="grid property-gallery-image"
+                        title="<?= htmlspecialchars($property['property_name']); ?>">
+
+                        <img
+                            src="<?= file_url . $image; ?>"
                             class="img-fluid"
-                            alt="<?= $property['property_name']; ?>">
+                            style="height: 250px; width: 100%; object-fit: cover;"
+                            alt="<?= htmlspecialchars($property['property_name']); ?> Image <?= $i + 1; ?>">
+
                     </a>
+
                 </div>
 
         <?php
+
             }
         }
+
         ?>
-
-
 
     </div>
 
-    <div class="swiper-pagination swiper-pagination-white"></div>
-    <div class="swiper-button-next swiper-button-white mr-3"></div>
-    <div class="swiper-button-prev swiper-button-white ml-3"></div>
-</div>
 
+    <!-- PAGINATION -->
+
+    <div class="swiper-pagination swiper-pagination-white"></div>
+
+
+    <!-- NAVIGATION -->
+
+    <div class="swiper-button-next swiper-button-white mr-3"></div>
+
+    <div class="swiper-button-prev swiper-button-white ml-3"></div>
+
+</div>
 <!-- START SECTION PROPERTIES LISTING -->
 <section class="single-proper blog details">
     <div class="container">
@@ -269,14 +332,52 @@ $featured_properties = select_rows("
                             <div class="widget-boxed-body">
                                 <div class="sidebar-widget author-widget2">
                                     <div class="author-box clearfix">
-                                        <img src="images/testimonials/agent.jpg" alt="author-image" class="author__img">
-                                        <h4 class="author__title">Clark Njogu</h4>
-                                        <p class="author__meta">Agent of Property</p>
+
+                                        <h4 class="author__title">
+                                            Elite Sanctuary Realtors
+                                        </h4>
+
+                                        <p class="author__meta">
+                                            Your Trusted Real Estate Partner
+                                        </p>
+
                                     </div>
+
+
                                     <ul class="author__contact">
-                                        <li><span class="la la-map-marker"><i class="fa fa-map-marker"></i></span>302 Nairobi</li>
-                                        <li><span class="la la-phone"><i class="fa fa-phone" aria-hidden="true"></i></span><a href="#">+254 0700 17813</a></li>
-                                        <li><span class="la la-envelope-o"><i class="fa fa-envelope" aria-hidden="true"></i></span><a href="#">cnjogu@gmail.com</a></li>
+                                        <!-- COMPANY LOCATION -->
+                                        <li>
+                                            <span class="la la-map-marker">
+                                                <i class="fa fa-map-marker"></i>
+                                            </span>
+                                            Pinetree Plaza, Kaburu DriveOff Ngong Road, 7th Floor
+                                        </li>
+
+
+                                        <!-- COMPANY PHONE NUMBER -->
+
+                                        <li>
+                                            <span class="la la-phone">
+                                                <i class="fa fa-phone" aria-hidden="true"></i>
+                                            </span>
+                                            <a href="tel:+254716464944">
+                                                +254 716 464 944
+                                            </a>
+                                        </li>
+
+
+                                        <!-- COMPANY EMAIL -->
+
+                                        <li>
+                                            <span class="la la-envelope-o">
+                                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                            </span>
+                                            <a href="mailto:info@sanctuaryrealtors.com">
+                                                info@sanctuaryrealtors.com
+                                            </a>
+
+                                        </li>
+
                                     </ul>
                                     <div class="agent-contact-form-sidebar">
                                         <h4>Request Inquiry</h4>
@@ -346,7 +447,7 @@ $featured_properties = select_rows("
                 </div>
             </aside>
         </div>
-       
+
     </div>
 </section>
 <!-- END SECTION PROPERTIES LISTING -->
@@ -445,6 +546,37 @@ $featured_properties = select_rows("
         $(this).closest('.slick-slider-area').find('.slick-next').on("click", function() {
             slider.slick('slickNext');
         });
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+
+        $('.property-gallery').magnificPopup({
+
+            delegate: '.property-gallery-image',
+
+            type: 'image',
+
+            gallery: {
+                enabled: true,
+                navigateByImgClick: true,
+                preload: [0, 2]
+            },
+
+            image: {
+                verticalFit: true,
+                titleSrc: 'title'
+            },
+
+            closeOnContentClick: false,
+
+            closeBtnInside: false,
+
+            fixedContentPos: true
+
+        });
+
     });
 </script>
 

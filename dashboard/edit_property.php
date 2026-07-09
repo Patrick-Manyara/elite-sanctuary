@@ -6,7 +6,7 @@ $current_year   = date("Y");
 
 $id = security('id', 'GET');
 
-$property = get_by_id('property',$id);
+$property = get_by_id('property', $id);
 
 if (!empty($property)) {
     session_assignment(array(
@@ -33,13 +33,13 @@ if (!empty($property)) {
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-6">
                         <?php
-                       
+
                         input_hybrid("What is Your Property Name/Title", "property_name", $property, true);
                         ?>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-6">
                         <?php
-                        
+
                         input_select('What is your space?', 'property_type', $property, true, array('house', 'bungalow', 'maisonette', 'apartment', 'bed and breakfast'));
                         ?>
                     </div>
@@ -49,6 +49,30 @@ if (!empty($property)) {
                     <div class="divider-text">Pricing Details</div>
                 </div>
 
+                <div>
+
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <?php
+                            input_hybrid("Property Price", "property_price", $property, false, 'number');
+                            ?>
+                        </div>
+                       
+
+                    </div>
+
+                </div>
+
+                  <div id="nono">
+                    <div class="row">
+                     
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-6">
+                            <?php
+                            input_select('Payment Details', 'property_price_details', $property, true, array('1 Month Deposit and 1 Month Rent', '2 Months Deposit and 1 Month Rent', '3 Months Deposit and 1 Month Rent'));
+                            ?>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-6">
@@ -61,7 +85,7 @@ if (!empty($property)) {
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-6">
                         <?php
                         input_select('Stay', 'property_stay', $property, true, array('Short Term', 'Long Term'));
-                         input_hybrid("Number of Vacant Units (optional)", "property_vacant", $property, false, 'number');
+                        input_hybrid("Number of Vacant Units (optional)", "property_vacant", $property, false, 'number');
                         ?>
                     </div>
                 </div>
@@ -87,18 +111,6 @@ if (!empty($property)) {
 
                 </div>
 
-                <div id="nono">
-
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <?php
-                            input_hybrid("Property Price", "property_price", $property, false, 'number');
-                            ?>
-                        </div>
-
-                    </div>
-
-                </div>
 
 
                 <div class="row">
@@ -115,15 +127,7 @@ if (!empty($property)) {
                 </div>
 
 
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <?php
-                        input_select('Payment Details', 'property_price_details', $property, true, array('1 Month Deposit and 1 Month Rent', '2 Months Deposit and 1 Month Rent', '3 Months Deposit and 1 Month Rent'));
-                        ?>
-                    </div>
-                </div>
 
-        
 
 
                 <div class="divider MyDiver">
@@ -172,20 +176,6 @@ if (!empty($property)) {
                     </div>
 
 
-                    <div class="col-12">
-                        <?php
-                        if (!empty($property['property_image2'])) {
-                            $require = false;
-                            $property_image2 = $property['property_image2'];
-                        } else {
-                            $require = true;
-                            $property_image2 = 'white_bg_image.png';
-                        }
-                        input_hybrid("Second Image", "property_image2", $property, false, "file", 'my_image1', '', 'img');
-                        ?>
-
-                        <img alt="image" src="<?= file_url . $property_image2 ?>" id="image_loader1" style="border-radius: 5%; border-color:grey; border-style: solid; height:auto; width: 60%;">
-                    </div>
                 </div>
 
 
