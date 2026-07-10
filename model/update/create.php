@@ -72,6 +72,9 @@ switch ($action) {
     case 'edit_landlord':
         edit_landlord();
         break;
+    case 'edit_property':
+        edit_property();
+        break;
     case 'landlord_profile':
         landlord_profile();
         break;
@@ -820,8 +823,6 @@ function edit_property()
 
     if (!empty($_FILES['property_image']['name'])) $arr['property_image'] = upload('property_image');
 
-    $conn = connect();
-
     if (isset($_POST['property_price']) && $_POST['property_price'] !== '') {
         $arr['property_price'] = security('property_price');
     } else {
@@ -829,25 +830,20 @@ function edit_property()
     }
 
     $fields_to_check = array(
-        'property_units',
-        'one_bedroom',
-        'two_bedroom',
-        'bedsitter',
-        'ground_floor',
-        'property_garbage',
-        'property_water',
-        'property_vacant',
-        'due',
-        'has_unit',
-        'added_by',
-        'property_city',
-        'property_location',
-        'property_policy',
-        'property_bathrooms',
-        'property_description',
-        'property_stay',
         'property_name',
-        'property_type'
+        'property_type',
+        'property_location',
+        'property_city',
+        'property_price_details',
+        'property_description',
+        'property_map',
+        'property_rooms',
+        'property_water',
+        'property_garbage',
+        'property_bathrooms',
+        'property_bedrooms',
+        'property_policy',
+        'property_status'
     );
 
     foreach ($fields_to_check as $field) {
@@ -856,12 +852,7 @@ function edit_property()
         }
     }
 
-
-
-
-
     if (!empty($arr['property_image'])) delete_file('property_image', 'property', 'property_id');
-
 
     if (!build_sql_edit('property', $arr, $id, 'property_id')) {
         $error['property'] = 133;
