@@ -386,7 +386,7 @@ $properties = select_rows($sql);
         <div class="sec-title">
             <h2><span>Properties For Sale </span>in Nairobi </h2>
         </div>
-        <div class="row portfolio-items">
+        <div class="row portfolio-items" style="margin-top: 100px;">
 
 
             <?php foreach ($properties as $property) { ?>
