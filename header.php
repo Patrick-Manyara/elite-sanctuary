@@ -480,6 +480,7 @@ require_once MODEL_PATH . 'operations.php';
                                         <li><a href="properties?id=kileleshwa">Houses for sale in Kileleshwa</a></li>
                                         <li><a href="properties?id=westlands">Houses for sale in Westlands</a></li>
                                         <li><a href="properties?id=riverside">Houses for sale in Riverside</a></li>
+                                        <li><a href="https://belgravia.sanctuaryrealtors.com/">Belgravia Place</a></li>
                                     </ul>
                                 </li>
 

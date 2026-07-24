@@ -11,9 +11,9 @@ if (IS_ONLINE) {
     define('DB_USERNAME', 'floraccn_rent');
 } else {
     define('DB_HOST', 'localhost');
-    define('DB_PASSWORD', '');
-    define('DB_NAME', 'sanctuary');
-    define('DB_USERNAME', 'root');
+    define('DB_PASSWORD', 'root_password');
+    define('DB_NAME', 'floraccn_rent');
+    define('DB_USERNAME', 'pat');
 }
 
 
