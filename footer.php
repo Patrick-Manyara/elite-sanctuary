@@ -174,13 +174,6 @@
 </div>
 <!--register form end -->
 
-<!-- START PRELOADER -->
-<div id="preloader">
-    <div id="status">
-        <div class="status-mes"></div>
-    </div>
-</div>
-<!-- END PRELOADER -->
 
 <!-- WhatsApp Floating Button -->
 <a href="https://wa.me/+254716464944"
